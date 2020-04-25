@@ -11,9 +11,9 @@ Data-Driven testing is performed using different utilities cucumber framework pr
 
 - Test Without Examples Keyword: 
 
->> [cucumber.BDD/src/test/java/features/calculator.feature](https://github.com/robinch93/Cucumber-BDD-Junit-Selenium/blob/master/cucumber.BDD/src/test/java/features/calculator.feature)
+   [cucumber.BDD/src/test/java/features/calculator.feature](https://github.com/robinch93/Cucumber-BDD-Junit-Selenium/blob/master/cucumber.BDD/src/test/java/features/calculator.feature)
 
->> [cucumber.BDD/src/test/java/stepDefinition/CalculatorStepDef.java
+   [cucumber.BDD/src/test/java/stepDefinition/CalculatorStepDef.java
 ](https://github.com/robinch93/Cucumber-BDD-Junit-Selenium/blob/master/cucumber.BDD/src/test/java/stepDefinition/CalculatorStepDef.java)
 
 - Test With Examples Keyword: 
