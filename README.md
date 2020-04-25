@@ -56,6 +56,15 @@ Data-Driven testing is performed using different utilities cucumber framework pr
    Hooks are used define methods with @Before and @After annotations to run before or after the scenarios. 
 
    [cucumber.BDD/src/test/java/Runner/Hooks.java](https://github.com/robinch93/Cucumber-BDD-Junit-Selenium/blob/master/cucumber.BDD/src/test/java/Runner/Hooks.java)
+  
+  
+ **Console Output** 
+
+   After Execution console ouotput has been attached. 
+
+   [Cucumber-BDD-Junit-Selenium/cucumber.BDD/console_output/](https://github.com/robinch93/Cucumber-BDD-Junit-Selenium/tree/master/cucumber.BDD/console_output)
+   
+   
 
 
 
