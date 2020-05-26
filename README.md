@@ -1,5 +1,5 @@
 # Cucumber-BDD-Junit-Selenium
-This project is implementation of Cucumber BDD framework using selenium and Junit. 
+This project is implementation of Cucumber BDD framework using selenium and Junit libraries. 
 
 **Prerequisite** 
 - Maven 
