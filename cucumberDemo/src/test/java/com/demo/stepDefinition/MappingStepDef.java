@@ -1,76 +1,83 @@
 package com.demo.stepDefinition;
-// package stepDefinition;
 
-// import java.util.Map;
+import java.util.Map;
 
-// import org.openqa.selenium.By;
-// import org.openqa.selenium.JavascriptExecutor;
-// import org.openqa.selenium.WebElement;
-// import org.openqa.selenium.support.ui.Select;
+import com.demo.Utils.BaseClass;
 
-// import Runner.BaseClass;
-// import cucumber.api.DataTable;
-// import cucumber.api.java.en.Given;
-// import cucumber.api.java.en.Then;
-// import cucumber.api.java.en.When;
-// import junit.framework.Assert;
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-// public class MappingStepDef extends BaseClass {
+import io.cucumber.datatable.DataTable;
+import io.cucumber.java.AfterAll;
+import io.cucumber.java.BeforeAll;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
-// private BaseClass base;
+public class MappingStepDef extends BaseClass {
 
-// public MappingStepDef(BaseClass base) {
-// this.base = base;
-// }
+    static WebDriver driver = getDriver();
+    Actions actions = new Actions(driver);
+    WebDriverWait wait = new WebDriverWait(driver, 50);
 
-// @Given("^User is on Basic Calculator Page$")
-// public void user_is_on_Basic_Calculator_page() {
-// base.driver.get("https://testsheepnz.github.io/BasicCalculator.html");
-// base.driver.manage().window().maximize();
-// }
+    @BeforeAll
+    public static void before_all() {
+        driver.manage().window().maximize();
+    }
 
-// @When("^title of the page is Basic Calculator$")
-// public void title_of_the_page_is_Basic_Calculator() throws Exception {
-// String title = driver.getTitle();
-// System.out.println(title);
-// Assert.assertEquals("Basic Calculator", title);
-// ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,500)");
-// Thread.sleep(1000);
-// }
+    @AfterAll
+    public static void after_all() {
+        BaseClass.quitDriver(driver);
+    }
 
-// @Then("^User enter numbers and operation$")
-// public void user_enter_numbers_and_operation(DataTable numbers) throws
-// InterruptedException {
+    @Given("User is on Basic Calculator Page")
+    public void user_is_on_Basic_Calculator_page() {
+        driver.get("https://testsheepnz.github.io/BasicCalculator.html");
+    }
 
-// for (Map<String, String> data : numbers.asMaps(String.class, String.class)) {
+    @When("title of the page is Basic Calculator")
+    public void title_of_the_page_is_Basic_Calculator() throws Exception {
+        String title = driver.getTitle();
+        System.out.println(title);
+        Assert.assertEquals("Basic Calculator", title);
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,500)");
+        Thread.sleep(1000);
+    }
 
-// WebElement num1 = driver.findElement(By.name("number1"));
-// num1.sendKeys(data.get("num1"));
-// WebElement num2 = driver.findElement(By.name("number2"));
-// num2.sendKeys(data.get("num2"));
-// Thread.sleep(500);
-// Select operation = new
-// Select(driver.findElement(By.name("selectOperation")));
-// operation.selectByVisibleText(data.get("operation"));
+    @Then("User enter numbers and operation")
+    public void user_enter_numbers_and_operation(DataTable numbers) throws InterruptedException {
 
-// Thread.sleep(500);
-// WebElement loginButton =
-// driver.findElement(By.xpath("//input[@value=\"Calculate\"]"));
-// JavascriptExecutor executor = (JavascriptExecutor) driver;
-// executor.executeScript("arguments[0].click();", loginButton);
+        for (Map<String, String> data : numbers.asMaps(String.class, String.class)) {
 
-// num1.clear();
-// num2.clear();
+            WebElement num1 = driver.findElement(By.name("number1"));
+            num1.sendKeys(data.get("num1"));
+            WebElement num2 = driver.findElement(By.name("number2"));
+            num2.sendKeys(data.get("num2"));
+            Thread.sleep(500);
+            Select operation = new Select(driver.findElement(By.name("selectOperation")));
+            operation.selectByVisibleText(data.get("operation"));
 
-// WebElement calculate =
-// driver.findElement(By.xpath("//input[@id=\"numberAnswerField\"]"));
-// String answer = calculate.getAttribute("value");
-// System.out.println("Answer after " + data.get("operation") + " operation: " +
-// answer);
-// Assert.assertEquals("6", answer);
+            Thread.sleep(500);
+            WebElement loginButton = driver.findElement(By.xpath("//input[@value=\"Calculate\"]"));
+            JavascriptExecutor executor = (JavascriptExecutor) driver;
+            executor.executeScript("arguments[0].click();", loginButton);
 
-// }
+            num1.clear();
+            num2.clear();
 
-// }
+            WebElement calculate = driver.findElement(By.xpath("//input[@id=\"numberAnswerField\"]"));
+            String answer = calculate.getAttribute("value");
+            System.out.println("Answer after " + data.get("operation") + " operation: " + answer);
+            Assert.assertEquals("6", answer);
 
-// }
+        }
+
+    }
+
+}

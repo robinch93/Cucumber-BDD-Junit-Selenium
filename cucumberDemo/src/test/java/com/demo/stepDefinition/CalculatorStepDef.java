@@ -10,20 +10,32 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.cucumber.java.AfterAll;
+import io.cucumber.java.BeforeAll;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class CalculatorStepDef extends BaseClass {
 
-	WebDriver driver = getDriver();
+	static WebDriver driver = getDriver();
 	Actions actions = new Actions(driver);
 	WebDriverWait wait = new WebDriverWait(driver, 50);
+
+	@BeforeAll
+	public static void before_all() {
+		driver.manage().window().maximize();
+	}
+
+	@AfterAll
+	public static void after_all() {
+		BaseClass.quitDriver(driver);
+	}
 
 	@Given("User is already on Basic Calculator Page")
 	public void user_already_on_Basic_Calculator_page() {
 		driver.get("https://testsheepnz.github.io/BasicCalculator.html");
-		driver.manage().window().maximize();
+
 	}
 
 	@When("title of login page is Basic Calculator")
