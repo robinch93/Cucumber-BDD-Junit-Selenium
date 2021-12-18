@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite failures="3" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="3" time="0.146341">
+    <testcase classname="Basic Calculator feature" name="Basic Calculator test scenario" time="0.145823">
+        <failure message="java.lang.NullPointerException&#10;&#9;at stepDefinition.CalculatorStepDef.user_already_on_Basic_Calculator_page(CalculatorStepDef.java:23)&#10;&#9;at ✽.Given User is already on Basic Calculator Page(src/test/java/features/calculator.feature:6)&#10;">
+            <![CDATA[Given User is already on Basic Calculator Page..............................failed
+When title of login page is Basic Calculator................................skipped
+Then User enter "3" and "5" for operation...................................skipped
+Then User clicks on calculate button........................................skipped
+Then User checks the answer.................................................skipped
+
+StackTrace:
+java.lang.NullPointerException
+	at stepDefinition.CalculatorStepDef.user_already_on_Basic_Calculator_page(CalculatorStepDef.java:23)
+	at ✽.Given User is already on Basic Calculator Page(src/test/java/features/calculator.feature:6)
+]]>
+        </failure>
+    </testcase>
+    <testcase classname="Basic Calculator feature" name=": Basic Calculator test scenario" time="0.000277">
+        <failure message="java.lang.NullPointerException&#10;&#9;at stepDefinition.CalculatorStepDef.user_already_on_Basic_Calculator_page(CalculatorStepDef.java:23)&#10;&#9;at ✽.Given User is already on Basic Calculator Page(src/test/java/features/calculator.feature:15)&#10;">
+            <![CDATA[Given User is already on Basic Calculator Page..............................failed
+When title of login page is Basic Calculator................................skipped
+Then User enter "3" and "5" for operation...................................skipped
+Then User clicks on calculate button........................................skipped
+Then User checks the answer.................................................skipped
+
+StackTrace:
+java.lang.NullPointerException
+	at stepDefinition.CalculatorStepDef.user_already_on_Basic_Calculator_page(CalculatorStepDef.java:23)
+	at ✽.Given User is already on Basic Calculator Page(src/test/java/features/calculator.feature:15)
+]]>
+        </failure>
+    </testcase>
+    <testcase classname="Basic Calculator feature" name=": Basic Calculator test scenario 2" time="0.000241">
+        <failure message="java.lang.NullPointerException&#10;&#9;at stepDefinition.CalculatorStepDef.user_already_on_Basic_Calculator_page(CalculatorStepDef.java:23)&#10;&#9;at ✽.Given User is already on Basic Calculator Page(src/test/java/features/calculator.feature:15)&#10;">
+            <![CDATA[Given User is already on Basic Calculator Page..............................failed
+When title of login page is Basic Calculator................................skipped
+Then User enter "5" and "3" for operation...................................skipped
+Then User clicks on calculate button........................................skipped
+Then User checks the answer.................................................skipped
+
+StackTrace:
+java.lang.NullPointerException
+	at stepDefinition.CalculatorStepDef.user_already_on_Basic_Calculator_page(CalculatorStepDef.java:23)
+	at ✽.Given User is already on Basic Calculator Page(src/test/java/features/calculator.feature:15)
+]]>
+        </failure>
+    </testcase>
+</testsuite>
