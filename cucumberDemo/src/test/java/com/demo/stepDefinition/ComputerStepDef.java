@@ -25,7 +25,7 @@ public class ComputerStepDef extends BaseClass {
 
     @BeforeAll
     public static void before_all() {
-        driver.manage().window().maximize();
+        driver = getDriver();
     }
 
     @AfterAll
@@ -35,7 +35,7 @@ public class ComputerStepDef extends BaseClass {
 
     @Given("User is already on Computer Database Page")
     public void user_is_already_on_Computer_Database_page() {
-        driver.get("http://computer-datagatling.io/computers");
+        driver.get("http://computer-database.gatling.io/computers");
     }
 
     @When("title of login page is Computers database")
@@ -53,7 +53,7 @@ public class ComputerStepDef extends BaseClass {
         executor.executeScript("arguments[0].click();", addComputer);
     }
 
-    @Then("User enters computer {string} and {string} and {string} ")
+    @Then("User enters computer {string} and {string} and {string}")
     public void user_enter_computer_details(String computerName, String date, String companyName) throws Exception {
         driver.findElement(By.name("name")).sendKeys(computerName);
         driver.findElement(By.name("introduced")).sendKeys(date);

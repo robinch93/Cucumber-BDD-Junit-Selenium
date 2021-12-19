@@ -18,13 +18,13 @@ import io.cucumber.java.en.When;
 
 public class CalculatorStepDef extends BaseClass {
 
-	static WebDriver driver = getDriver();
+	static WebDriver driver;
 	Actions actions = new Actions(driver);
 	WebDriverWait wait = new WebDriverWait(driver, 50);
 
 	@BeforeAll
 	public static void before_all() {
-		driver.manage().window().maximize();
+		driver = getDriver();
 	}
 
 	@AfterAll
@@ -35,7 +35,6 @@ public class CalculatorStepDef extends BaseClass {
 	@Given("User is already on Basic Calculator Page")
 	public void user_already_on_Basic_Calculator_page() {
 		driver.get("https://testsheepnz.github.io/BasicCalculator.html");
-
 	}
 
 	@When("title of login page is Basic Calculator")

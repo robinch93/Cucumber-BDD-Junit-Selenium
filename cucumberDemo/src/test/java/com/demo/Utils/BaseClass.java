@@ -15,6 +15,7 @@ public class BaseClass {
 		options.addArguments("--no-sandbox");
 		options.addArguments("--disable-dev-shm-usage");
 		driver = new ChromeDriver(options);
+		driver.manage().window().maximize();
 		return driver;
 	}
 
