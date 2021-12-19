@@ -7,9 +7,6 @@ services:
     command: tail -f /dev/null
     networks:
       - bdd
-    # working_dir: /script
-    # volumes:
-    #   - .:/script
 
 networks:
   bdd:
