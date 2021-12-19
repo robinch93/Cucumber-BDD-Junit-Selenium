@@ -10,8 +10,8 @@ public class BaseClass {
 	static ChromeOptions options = new ChromeOptions();
 
 	protected static WebDriver getDriver() {
-		// System.setProperty("webdriver.chrome.driver","usr/local/bin/chromedriver");
-		// options.addArguments("--headless", "--window-size=1920,1200");
+		// System.setProperty("webdriver.chrome.driver", "usr/local/bin/chromedriver");
+		options.addArguments("--headless", "--window-size=1920,1200");
 		options.addArguments("--no-sandbox");
 		options.addArguments("--disable-dev-shm-usage");
 		driver = new ChromeDriver(options);

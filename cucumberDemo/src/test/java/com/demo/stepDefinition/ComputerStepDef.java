@@ -1,6 +1,7 @@
 package com.demo.stepDefinition;
 
 import com.demo.Utils.BaseClass;
+import com.demo.Utils.Locators.Computer;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -35,7 +36,7 @@ public class ComputerStepDef extends BaseClass {
 
     @Given("User is already on Computer Database Page")
     public void user_is_already_on_Computer_Database_page() {
-        driver.get("http://computer-database.gatling.io/computers");
+        driver.get(Computer.url);
     }
 
     @When("title of login page is Computers database")
@@ -48,38 +49,38 @@ public class ComputerStepDef extends BaseClass {
 
     @Then("User click on Add a Computer")
     public void user_clicks_add_a_computer() {
-        WebElement addComputer = driver.findElement(By.xpath("//a[@id=\"add\"]"));
+        WebElement addComputer = driver.findElement(By.xpath(Computer.addComputer));
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", addComputer);
     }
 
     @Then("User enters computer {string} and {string} and {string}")
     public void user_enter_computer_details(String computerName, String date, String companyName) throws Exception {
-        driver.findElement(By.name("name")).sendKeys(computerName);
-        driver.findElement(By.name("introduced")).sendKeys(date);
-        Select company = new Select(driver.findElement(By.name("company")));
+        driver.findElement(By.name(Computer.name)).sendKeys(computerName);
+        driver.findElement(By.name(Computer.introducedDate)).sendKeys(date);
+        Select company = new Select(driver.findElement(By.name(Computer.company)));
         company.selectByVisibleText(companyName);
         Thread.sleep(500);
     }
 
     @Then("User click on create this computer")
     public void user_click_create_this_computer() {
-        WebElement createComputer = driver.findElement(By.xpath("//input[@value=\"Create this computer\"]"));
+        WebElement createComputer = driver.findElement(By.xpath(Computer.createComputer));
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", createComputer);
     }
 
     @Then("User fill company {string} in filter")
     public void user_fill_company(String filterName) {
-        WebElement filter = driver.findElement(By.xpath("//input[@id=\"searchbox\"]"));
-        filter.sendKeys(filterName);
+        WebElement searchBox = driver.findElement(By.xpath(Computer.searchBox));
+        searchBox.sendKeys(filterName);
     }
 
     @Then("User clicks on filter button")
     public void user_clicks_on_filter_button() throws InterruptedException {
-        WebElement createComputer = driver.findElement(By.xpath("//input[@value=\"Filter by name\"]"));
+        WebElement filter = driver.findElement(By.xpath(Computer.filterByName));
         JavascriptExecutor executor = (JavascriptExecutor) driver;
-        executor.executeScript("arguments[0].click();", createComputer);
+        executor.executeScript("arguments[0].click();", filter);
         Thread.sleep(500);
     }
 

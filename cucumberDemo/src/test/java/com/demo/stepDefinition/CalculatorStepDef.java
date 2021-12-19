@@ -1,6 +1,7 @@
 package com.demo.stepDefinition;
 
 import com.demo.Utils.BaseClass;
+import com.demo.Utils.Locators.Calculator;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -34,7 +35,7 @@ public class CalculatorStepDef extends BaseClass {
 
 	@Given("User is already on Basic Calculator Page")
 	public void user_already_on_Basic_Calculator_page() {
-		driver.get("https://testsheepnz.github.io/BasicCalculator.html");
+		driver.get(Calculator.url);
 	}
 
 	@When("title of login page is Basic Calculator")
@@ -48,20 +49,20 @@ public class CalculatorStepDef extends BaseClass {
 
 	@Then("User enter {string} and {string} for operation")
 	public void user_enter_numbers_for_operation(String number1, String number2) {
-		driver.findElement(By.name("number1")).sendKeys(number1);
-		driver.findElement(By.name("number2")).sendKeys(number2);
+		driver.findElement(By.name(Calculator.num1)).sendKeys(number1);
+		driver.findElement(By.name(Calculator.num2)).sendKeys(number2);
 	}
 
 	@Then("User clicks on calculate button")
 	public void user_clicks_on_calculate_button() {
-		WebElement loginButton = driver.findElement(By.xpath("//input[@value=\"Calculate\"]"));
+		WebElement loginButton = driver.findElement(By.xpath(Calculator.loginButton));
 		JavascriptExecutor executor = (JavascriptExecutor) driver;
 		executor.executeScript("arguments[0].click();", loginButton);
 	}
 
 	@Then("User checks the answer")
 	public void user_checks_the_answer() {
-		WebElement calculate = driver.findElement(By.xpath("//input[@id=\"numberAnswerField\"]"));
+		WebElement calculate = driver.findElement(By.xpath(Calculator.answerField));
 		String answer = calculate.getAttribute("value");
 		System.out.println("Answer is: " + answer);
 		Assert.assertEquals("8", answer);
