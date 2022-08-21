@@ -1,3 +1,4 @@
+@computer
 Feature: Computer Database feature
 
 Scenario Outline: Computer Database test scenario

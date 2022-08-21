@@ -1,3 +1,4 @@
+@mapping
 Feature: Basic Calculator mapping feature
 
 	# datatables with maps

@@ -1,3 +1,4 @@
+@calculator
 Feature: Basic Calculator feature
 
 	# without Examples Keyword
